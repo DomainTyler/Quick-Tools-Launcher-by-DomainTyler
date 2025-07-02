@@ -1,47 +1,68 @@
 # Quick Tools Launcher by DomainTyler
 
-**Quick Tools Launcher by DomainTyler** is a lightweight tool that provides quick access to various Windows utilities and system tools through a simple, menu-driven interface. Available in both `.bat` (batch script) and `.exe` (compiled) versions for your convenience.
+**Quick Tools Launcher by DomainTyler** is a lightweight utility that gives you fast access to essential Windows tools and maintenance commands — all from a simple, menu-driven interface.  
+Available in both `.bat` (batch script) and `.exe` (compiled executable) formats for maximum flexibility.
+
+---
 
 ## ⚙️ Features
-- Open Task Manager, Device Manager, System Information, Control Panel, and more
-- Flush DNS cache
-- Run Check Disk, Disk Cleanup, System File Checker (SFC), and DISM Health Check
-- View IP configuration, ping and traceroute to Google
-- Restart Windows Explorer
-- And much more!
+
+- Open Task Manager, Device Manager, System Information, Control Panel, and more  
+- Flush DNS cache  
+- Run Check Disk, Disk Cleanup, System File Checker (SFC), and DISM Health Check  
+- View IP configuration, ping and traceroute to Google  
+- Restart Windows Explorer  
+- Access Windows Update, startup folder, user account settings, system settings  
+- And more!
+
+> ✅ See the [Full Feature List](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki/Full-Feature-List)
+
+---
 
 ## 🚀 Versions
 
-### 🔹 Batch Script Version (`.bat`)
-- Simple, editable, and open-source
-- Ideal for advanced users and script customization
+### 🔹 Batch Script (`.bat`)
+- Fully open-source
+- Easy to modify or extend
+- No installation required
 
-### 🔹 Executable Version (`.exe`)
-- Portable and ready-to-run without needing a command window or script editing
-- Great for systems with script restrictions or non-technical users
-- Same features as the batch script, with improved usability and protection
+### 🔹 Executable (`.exe`)
+- Same functionality as the `.bat` version
+- Faster startup and more polished execution
+- Ideal for systems with script restrictions (e.g., Group Policy)
+- Protected from casual tampering
+
+---
 
 ## 📥 Usage
 
 ### Option 1: Batch Script
-1. Download the `Quick Tools Launcher by DomainTyler.bat` file.
-2. Double-click to run the script.
-3. Choose an option from the menu.
+1. Download `Quick Tools Launcher by DomainTyler.bat`
+2. Right-click → Run as Administrator (for full access)
+3. Choose a menu option
 
 ### Option 2: Executable
-1. Download the `Quick Tools Launcher by DomainTyler.exe` file.
-2. Double-click to run it like a regular program.
-3. Choose an option from the menu.
+1. Download `Quick Tools Launcher by DomainTyler.exe`
+2. Double-click to launch
+3. Use the keyboard menu to select a tool
 
-> 💡 Both versions offer the same tools and functions. Choose the one that best suits your needs!
+> 🔐 Admin rights may be required for some features like SFC, DISM, or Check Disk.
 
-## 🖥️ Requirements
-- Windows operating system
-- Administrator privileges may be required for some tasks (e.g., SFC or DISM)
+---
+
+## 🧩 Troubleshooting and Help
+
+- See the [FAQ](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki/FAQ)
+- Check out the [Troubleshooting Guide](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki/Troubleshooting)
+- Or visit the [GitHub Wiki](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki) for more tips
+
+---
 
 ## 📝 License
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.  
-Both the `.bat` and `.exe` versions are covered under this license.
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+> Both the `.bat` and `.exe` versions are covered under this license. The `.exe` is compiled directly from the open-source `.bat` file.
 
 ---
 
