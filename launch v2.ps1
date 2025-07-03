@@ -1,4 +1,3 @@
-
 # launch v2.ps1
 
 $exeUrl = "https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/raw/main/Quick%20Tools%20Launcher%20by%20DomainTyler%20v2.exe"
@@ -14,3 +13,5 @@ catch {
     Write-Host "Failed to download or launch the app: $_" -ForegroundColor Red
     exit 1
 }
+
+
