@@ -15,12 +15,12 @@ Quick Tools Launcher requires **PowerShell**. Some tools require **Administrator
 
 ### Run from PowerShell (Recommended)
 
+## V1 EXE
 ```powershell
-# Version 1
 iex (irm 'https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/launch%20v1.ps1')
 ```
+## V2 EXE (Recommended)
 ```powershell
-# Version 2 (Updated & Recommended)
 iwr -useb "https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/launch%20v2.ps1" | iex
 ```
 
