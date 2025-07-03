@@ -1,89 +1,80 @@
 # Quick Tools Launcher by DomainTyler
 
-**Quick Tools Launcher by DomainTyler** is a lightweight utility that gives you fast access to essential Windows tools and maintenance commands — all from a simple, menu-driven interface.  
-Available in both `.bat` (batch script) and `.exe` (compiled executable) formats for maximum flexibility.
+[![Version](https://img.shields.io/github/v/release/DomainTyler/Quick-Tools-Launcher-by-DomainTyler?color=%230567ff&label=Latest%20Release&style=for-the-badge)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/releases/latest)
+![GitHub Downloads](https://img.shields.io/github/downloads/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/total?label=Total%20Downloads&style=for-the-badge)
+[![](https://dcbadge.limes.pink/api/server/https://discord.gg/YOUR_DISCORD_INVITE?theme=default-inverted&style=for-the-badge)](https://discord.gg/YOUR_DISCORD_INVITE)
+[![Documentation](https://img.shields.io/badge/Documentation-View%20Wiki-grey?style=for-the-badge&logo=bookstack)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki)
+
+A lightweight Windows utility that provides fast access to essential system tools and maintenance commands through a simple menu interface. Designed for users who want to streamline Windows troubleshooting and management.
+
+![Quick Tools Launcher Screenshot](https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/assets/screenshot.png)
 
 ---
 
-## 🖥️ Quick Start — Run from PowerShell
+## 💡 Usage
 
-You can quickly launch the app directly from PowerShell by running one of these commands:
+Quick Tools Launcher requires **PowerShell**. Some tools require **Administrator privileges**.
 
-### v1 
+### Run from PowerShell (Recommended)
+
 ```powershell
+# Version 1
 iex (irm 'https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/launch%20v1.ps1')
 ```
-### v2
 ```powershell
+# Version 2 (Updated & Recommended)
 iwr -useb "https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/launch%20v2.ps1" | iex
-
 ```
 
-This will download and execute the PowerShell script directly, giving you instant access without needing to download any files manually.
+> ⚠️ *Run PowerShell as Administrator for full functionality.*
 
-> **Note:** You might need to run PowerShell as Administrator depending on which tools you want to use.
+### Manual Download & Run
+
+- **Batch Script:**  
+  Download `Quick Tools Launcher by DomainTyler.bat` and run **as Administrator**.
+
+- **Executable:**  
+  Download `Quick Tools Launcher by DomainTyler.exe` and double-click to launch.
 
 ---
 
-## ⚙️ Features
+## 🛠️ Features
 
 - Open Task Manager, Device Manager, System Information, Control Panel, and more  
-- Flush DNS cache  
-- Run Check Disk, Disk Cleanup, System File Checker (SFC), and DISM Health Check  
-- View IP configuration, ping and traceroute to Google  
+- Flush DNS cache with a click  
+- Run Disk Cleanup, Check Disk, SFC, and DISM scans  
+- View IP config, ping Google, and traceroute  
 - Restart Windows Explorer  
-- Access Windows Update, startup folder, user account settings, system settings  
-- And more!
-
-> ✅ See the [Full Feature List](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki/Full-Feature-List)
+- Access Windows Update, Startup folder, User Accounts, and System Settings  
+- And more! See the [Full Feature List](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki/Full-Feature-List)
 
 ---
 
-## 🚀 Versions
+## 🧰 Development & Contribution
 
-### 🔹 Batch Script (`.bat`)
-- Fully open-source
-- Easy to modify or extend
-- No installation required
+Want to contribute or customize?
 
-### 🔹 Executable (`.exe`)
-- Same functionality as the `.bat` version
-- Faster startup and more polished execution
-- Ideal for systems with script restrictions (e.g., Group Policy)
-- Protected from casual tampering
-
----
-
-## 📥 Usage
-
-### Option 1: Batch Script
-1. Download `Quick Tools Launcher by DomainTyler.bat`
-2. Right-click → Run as Administrator (for full access)
-3. Choose a menu option
-
-### Option 2: Executable
-1. Download `Quick Tools Launcher by DomainTyler.exe`
-2. Double-click to launch
-3. Use the keyboard menu to select a tool
-
-> 🔐 Admin rights may be required for some features like SFC, DISM, or Check Disk.
+- Fork the repo, make changes, and open a pull request.  
+- Use GitHub UI or clone the repo:  
+  ```powershell
+  git clone https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler.git
+  cd Quick-Tools-Launcher-by-DomainTyler
+  ```
+- Modify `.bat` scripts or update the PowerShell launcher scripts.
 
 ---
 
-## 🧩 Troubleshooting and Help
+## 🆘 Support & Community
 
-- See the [FAQ](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki/FAQ)
-- Check out the [Troubleshooting Guide](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki/Troubleshooting)
-- Or visit the [GitHub Wiki](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki) for more tips
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
-> Both the `.bat` and `.exe` versions are covered under this license. The `.exe` is compiled directly from the open-source `.bat` file.
+- FAQ & Troubleshooting: [Wiki](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki)  
+- Join the discussion: [Discord](https://discord.gg/YOUR_DISCORD_INVITE)  
 
 ---
 
-Created by **DomainTyler**
+## 📜 License
+
+MIT License — free and open-source. Both `.bat` and `.exe` versions included.
+
+---
+
+<p align="center">Made with ❤️ by <a href="https://github.com/DomainTyler">DomainTyler</a></p>
