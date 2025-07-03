@@ -1,4 +1,4 @@
-# launch v2.ps1 - Enhanced with clearer progress and spinner
+# launch v2.ps1 - Manual progress with Invoke-WebRequest
 
 function Write-Log {
     param(
@@ -7,6 +7,14 @@ function Write-Log {
     )
     $timestamp = Get-Date -Format "HH:mm:ss"
     Write-Host "[$timestamp] $Message" -ForegroundColor $Color
+}
+
+function Show-ProgressBar($percent) {
+    $width = 40
+    $filled = [Math]::Round($percent * $width / 100)
+    $empty = $width - $filled
+    $bar = ('█' * $filled) + ('░' * $empty)
+    Write-Progress -Activity "Downloading Quick Tools Launcher" -Status "$percent% Complete" -PercentComplete $percent
 }
 
 $exeUrl = "https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/raw/main/Quick%20Tools%20Launcher%20by%20DomainTyler%20v2.exe"
@@ -21,33 +29,10 @@ Write-Host ""
 Write-Log "Starting download..." Cyan
 
 try {
-    $webclient = New-Object System.Net.WebClient
-    $done = $false
+    $response = Invoke-WebRequest -Uri $exeUrl -UseBasicParsing -OutFile $outputPath -Verbose -TimeoutSec 60 -Headers @{}
 
-    $webclient.DownloadProgressChanged += {
-        param($sender, $e)
-        Write-Progress -Activity "Downloading Quick Tools Launcher" `
-                       -Status "$($e.ProgressPercentage)% Complete" `
-                       -PercentComplete $e.ProgressPercentage
-    }
-
-    $webclient.DownloadFileCompleted += {
-        $done = $true
-    }
-
-    $webclient.DownloadFileAsync([Uri]$exeUrl, $outputPath)
-
-    # Spinner while waiting
-    $spinner = @('|', '/', '-', '\')
-    $i = 0
-    while (-not $done) {
-        Write-Progress -Activity "Downloading Quick Tools Launcher" `
-                       -Status "Please wait... $($spinner[$i % $spinner.Count])"
-        Start-Sleep -Milliseconds 150
-        $i++
-    }
-
-    Write-Progress -Activity "Downloading Quick Tools Launcher" -Completed
+    # Unfortunately Invoke-WebRequest doesn't provide progress, so just show 100% at end
+    Show-ProgressBar 100
     Write-Log "Download complete!" Green
 
     Write-Log "Launching Quick Tools Launcher..." Green
