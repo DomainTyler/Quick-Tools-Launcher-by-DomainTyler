@@ -1,16 +1,48 @@
+# launch v2.ps1 - Enhanced version
 
-# launch v2.ps1
+function Write-Log {
+    param(
+        [string]$Message,
+        [ConsoleColor]$Color = 'White'
+    )
+    $timestamp = Get-Date -Format "HH:mm:ss"
+    Write-Host "[$timestamp] $Message" -ForegroundColor $Color
+}
 
 $exeUrl = "https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/raw/main/Quick%20Tools%20Launcher%20by%20DomainTyler%20v2.exe"
 $outputPath = "$env:TEMP\QuickToolsLauncher.exe"
 
-Write-Host "Downloading Quick Tools Launcher..." -ForegroundColor Cyan
+Write-Host ""
+Write-Host "╔══════════════════════════════════════╗" -ForegroundColor Cyan
+Write-Host "║    Quick Tools Launcher Downloader   ║" -ForegroundColor Cyan
+Write-Host "╚══════════════════════════════════════╝" -ForegroundColor Cyan
+Write-Host ""
+
+Write-Log "Starting download..." Cyan
+
 try {
-    Invoke-WebRequest -Uri $exeUrl -OutFile $outputPath -UseBasicParsing -ErrorAction Stop
-    Write-Host "Download complete. Launching the app..." -ForegroundColor Green
-    Start-Process $outputPath
+    # Create a WebClient for showing progress
+    $webclient = New-Object System.Net.WebClient
+    $webclient.DownloadProgressChanged += {
+        param($sender, $e)
+        Write-Progress -Activity "Downloading Quick Tools Launcher" -Status "$($e.ProgressPercentage)% Complete" -PercentComplete $e.ProgressPercentage
+    }
+    $webclient.DownloadFileAsync([Uri]$exeUrl, $outputPath)
+
+    # Wait for download to complete
+    while ($webclient.IsBusy) {
+        Start-Sleep -Milliseconds 200
+    }
+
+    Write-Progress -Activity "Downloading Quick Tools Launcher" -Completed
+    Write-Log "Download complete!" Green
+
+    Write-Log "Launching Quick Tools Launcher..." Green
+    Start-Process -FilePath $outputPath
 }
 catch {
-    Write-Host "Failed to download or launch the app: $_" -ForegroundColor Red
+    Write-Log "Error: $_" Red
+    Write-Host "Press any key to exit..."
+    $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
     exit 1
 }
