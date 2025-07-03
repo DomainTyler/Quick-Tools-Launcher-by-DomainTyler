@@ -5,6 +5,20 @@ Available in both `.bat` (batch script) and `.exe` (compiled executable) formats
 
 ---
 
+## 🖥️ Quick Start — Run from PowerShell
+
+You can quickly launch the app directly from PowerShell by running this command:
+
+```powershell
+iex (irm 'https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/launch.ps1')
+```
+
+This will download and execute the PowerShell script directly, giving you instant access without needing to download any files manually.
+
+> **Note:** You might need to run PowerShell as Administrator depending on which tools you want to use.
+
+---
+
 ## ⚙️ Features
 
 - Open Task Manager, Device Manager, System Information, Control Panel, and more  
