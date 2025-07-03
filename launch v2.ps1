@@ -1,4 +1,4 @@
-# launch v2.ps1 - Enhanced version
+# launch v2.ps1 - Enhanced with clearer progress and spinner
 
 function Write-Log {
     param(
@@ -21,17 +21,30 @@ Write-Host ""
 Write-Log "Starting download..." Cyan
 
 try {
-    # Create a WebClient for showing progress
     $webclient = New-Object System.Net.WebClient
+    $done = $false
+
     $webclient.DownloadProgressChanged += {
         param($sender, $e)
-        Write-Progress -Activity "Downloading Quick Tools Launcher" -Status "$($e.ProgressPercentage)% Complete" -PercentComplete $e.ProgressPercentage
+        Write-Progress -Activity "Downloading Quick Tools Launcher" `
+                       -Status "$($e.ProgressPercentage)% Complete" `
+                       -PercentComplete $e.ProgressPercentage
     }
+
+    $webclient.DownloadFileCompleted += {
+        $done = $true
+    }
+
     $webclient.DownloadFileAsync([Uri]$exeUrl, $outputPath)
 
-    # Wait for download to complete
-    while ($webclient.IsBusy) {
-        Start-Sleep -Milliseconds 200
+    # Spinner while waiting
+    $spinner = @('|', '/', '-', '\')
+    $i = 0
+    while (-not $done) {
+        Write-Progress -Activity "Downloading Quick Tools Launcher" `
+                       -Status "Please wait... $($spinner[$i % $spinner.Count])"
+        Start-Sleep -Milliseconds 150
+        $i++
     }
 
     Write-Progress -Activity "Downloading Quick Tools Launcher" -Completed
