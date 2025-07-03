@@ -2,7 +2,6 @@
 
 [![Version](https://img.shields.io/github/v/release/DomainTyler/Quick-Tools-Launcher-by-DomainTyler?color=%230567ff&label=Latest%20Release&style=for-the-badge)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/releases/latest)
 ![GitHub Downloads](https://img.shields.io/github/downloads/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/total?label=Total%20Downloads&style=for-the-badge)
-[![](https://dcbadge.limes.pink/api/server/https://discord.gg/YOUR_DISCORD_INVITE?theme=default-inverted&style=for-the-badge)](https://discord.gg/YOUR_DISCORD_INVITE)
 [![Documentation](https://img.shields.io/badge/Documentation-View%20Wiki-grey?style=for-the-badge&logo=bookstack)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki)
 
 A lightweight Windows utility that provides fast access to essential system tools and maintenance commands through a simple menu interface. Designed for users who want to streamline Windows troubleshooting and management.
