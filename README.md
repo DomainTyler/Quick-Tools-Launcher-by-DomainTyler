@@ -1,8 +1,13 @@
 # Quick Tools Launcher by DomainTyler
 
 [![Version](https://img.shields.io/github/v/release/DomainTyler/Quick-Tools-Launcher-by-DomainTyler?color=%230567ff&label=Latest%20Release&style=for-the-badge)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/releases/latest)
-[![Total Downloads](https://img.shields.io/github/downloads/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/total?label=Total%20Downloads&style=for-the-badge)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/releases)
 [![Documentation](https://img.shields.io/badge/Documentation-View%20Wiki-grey?style=for-the-badge&logo=bookstack)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki)
+[![License: MIT](https://img.shields.io/github/license/DomainTyler/Quick-Tools-Launcher-by-DomainTyler?style=for-the-badge&color=green)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/blob/main/LICENSE)
+[![Code Size](https://img.shields.io/github/languages/code-size/DomainTyler/Quick-Tools-Launcher-by-DomainTyler?style=for-the-badge)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler)
+![Windows](https://img.shields.io/badge/OS-Windows-blue?style=for-the-badge&logo=windows)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/DomainTyler/Quick-Tools-Launcher-by-DomainTyler?style=for-the-badge)](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler)
+[![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red?style=for-the-badge)](#)
+
 
 A lightweight Windows utility that provides fast access to essential system tools and maintenance commands through a simple menu interface. Designed for users who want to streamline Windows troubleshooting and management.
 
