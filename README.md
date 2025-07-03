@@ -9,13 +9,14 @@ Available in both `.bat` (batch script) and `.exe` (compiled executable) formats
 
 You can quickly launch the app directly from PowerShell by running one of these commands:
 
-### 1 [ long ]
+### v1 
 ```powershell
 iex (irm 'https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/launch%20v1.ps1')
 ```
-### 2 [ short ]
+### v2
 ```powershell
-iex (irm 'https://tinyurl.com/DomainTylerQTL')
+iwr -useb "https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/launch%20v2.ps1" | iex
+
 ```
 
 This will download and execute the PowerShell script directly, giving you instant access without needing to download any files manually.
