@@ -31,10 +31,11 @@ iwr -useb "https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by
 
 > ⚠️ *Run PowerShell as Administrator for full functionality.*
 
-[![How to Run Quick Tools Launcher](https://img.youtube.com/vi/-B3Hr1S6lm4/maxresdefault.jpg)](https://www.youtube.com/watch?v=-B3Hr1S6lm4)
+## 🎥 How to Run Quick Tools Launcher
 
+Click the video below to watch how to quickly launch **Quick Tools Launcher v1 and v2** using PowerShell:
 
-
+[![▶️ How to Run Quick Tools Launcher](https://img.youtube.com/vi/-B3Hr1S6lm4/maxresdefault.jpg)](https://www.youtube.com/watch?v=-B3Hr1S6lm4)
 
 ### Manual Download & Run
 
