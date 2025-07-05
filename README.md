@@ -22,11 +22,11 @@ Quick Tools Launcher requires **PowerShell**. Some tools require **Administrator
 
 ## V1 EXE
 ```powershell
-iex (irm 'https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/launch%20v1.ps1')
+iwr -useb "https://github.com/DomainTyler/.exe-.ps1-vault/raw/main/run%20QLT%20v1.ps1" | iex
 ```
 ## V2 EXE (Recommended)
 ```powershell
-iwr -useb "https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/launch%20v2.ps1" | iex
+iwr -useb "https://github.com/DomainTyler/.exe-.ps1-vault/raw/main/run%20QLT%20v2.ps1" | iex
 ```
 
 > ⚠️ *Run PowerShell as Administrator for full functionality.*
