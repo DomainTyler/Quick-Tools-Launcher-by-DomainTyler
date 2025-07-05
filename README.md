@@ -31,7 +31,7 @@ iwr -useb "https://github.com/DomainTyler/.exe-.ps1-vault/raw/main/run%20QLT%20v
 
 > ⚠️ *Run PowerShell as Administrator for full functionality.*
 
-## 🎥 How to Run Quick Tools Launcher
+## 🎥 How to Run Quick Tools Launcher 
 
 Click the video below to watch how to quickly launch **Quick Tools Launcher v1 and v2** using PowerShell:
 
