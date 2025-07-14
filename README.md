@@ -76,8 +76,14 @@ Want to contribute or customize?
 ## 🆘 Support & Community
 
 - FAQ & Troubleshooting: [Wiki](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki)  
-- Join the discussion: [Discord](https://discord.gg/YOUR_DISCORD_INVITE)  
+- Join the discussion: [Discord](https://discord.gg/YOUR_DISCORD_INVITE)
 
+ ---
+ 
+### 📄 Legal
+
+- [Terms of Service](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki/Terms-of-Service)
+- [Privacy Policy](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki/PRIVACY-POLICY)
 ---
 
 ## 📜 License
