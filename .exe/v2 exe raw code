@@ -1,0 +1,176 @@
+import ttkbootstrap as tb
+from ttkbootstrap.constants import *
+import tkinter as tk
+from tkinter import messagebox
+import subprocess
+import webbrowser
+import threading
+import platform
+import os
+import sys
+
+# -------------------- COMMANDS --------------------
+COMMAND_SECTIONS = {
+    "🖥️ System Tools": [
+        ("Open Task Manager", "taskmgr"),
+        ("Open Device Manager", "devmgmt.msc"),
+        ("Open System Information", "msinfo32"),
+        ("Open Control Panel", "control"),
+        ("Open Registry Editor", "regedit"),
+        ("Open Windows Features", "optionalfeatures"),
+        ("Open Services Manager", "services.msc"),
+        ("Open Event Viewer", "eventvwr"),
+        ("Run Disk Cleanup", "cleanmgr"),
+        ("Run System File Checker (SFC)", "sfc /scannow"),
+        ("Run DISM Health Check", "DISM /Online /Cleanup-Image /RestoreHealth"),
+        ("Restart Windows Explorer", "explorer-restart"),
+    ],
+    "🌐 Network & User": [
+        ("Show IP Configuration", "ipconfig /all"),
+        ("Clear DNS Cache", "ipconfig /flushdns"),
+        ("Ping Google", "ping 8.8.8.8"),
+        ("Traceroute to Google", "tracert google.com"),
+        ("Open User Accounts Settings", "control userpasswords2"),
+        ("Open Startup Folder", "start shell:startup"),
+        ("Open Windows Update", "start ms-settings:windowsupdate"),
+    ],
+    "🔚 Other": [
+        ("Check Disk (C:)", "chkdsk C:"),
+        ("Exit Launcher", "exit"),
+    ],
+}
+
+# -------------------- CORE FUNCTIONS --------------------
+def append_output(text):
+    output_text.configure(state="normal")
+    output_text.insert(tk.END, text)
+    output_text.see(tk.END)  # Scroll to the end
+    output_text.configure(state="disabled")
+
+def run_command(command):
+    if command == "explorer-restart":
+        subprocess.run("taskkill /f /im explorer.exe", shell=True)
+        subprocess.run("start explorer.exe", shell=True)
+        messagebox.showinfo("Success", "Windows Explorer restarted.")
+        append_output("Windows Explorer restarted.\n")
+    elif command == "exit":
+        app.quit()
+    else:
+        def task():
+            append_output(f"> {command}\n")
+            try:
+                process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+                # Read stdout
+                for line in process.stdout:
+                    append_output(line)
+                # Read stderr
+                for line in process.stderr:
+                    append_output(line)
+
+                process.wait()
+                append_output(f"\nProcess exited with code {process.returncode}\n\n")
+            except Exception as e:
+                append_output(f"Error: {str(e)}\n")
+
+        threading.Thread(target=task, daemon=True).start()
+
+def toggle_theme():
+    new_theme = "litera" if app.style.theme.name == "darkly" else "darkly"
+    app.style.theme_use(new_theme)
+
+def toggle_fullscreen(event=None):
+    global fullscreen
+    fullscreen = not fullscreen
+    app.attributes("-fullscreen", fullscreen)
+
+def end_fullscreen(event=None):
+    global fullscreen
+    fullscreen = False
+    app.attributes("-fullscreen", False)
+
+def open_github():
+    webbrowser.open("https://github.com/DomainTyler")
+
+# -------------------- WINDOW SETUP --------------------
+app = tb.Window(themename="darkly")
+
+app.title(" Quick Tools Launcher by DomainTyler")
+app.geometry("700x900")
+app.minsize(400, 400)
+app.resizable(True, True)
+
+fullscreen = False
+
+app.bind("<F11>", toggle_fullscreen)
+app.bind("<Escape>", end_fullscreen)
+
+# --- TOP FRAME: title left, GitHub button right ---
+top_frame = tb.Frame(app)
+top_frame.pack(fill="x", pady=(15, 5), padx=15)
+
+title_label = tb.Label(top_frame, text="⚙️ Quick Tools Launcher", font=("Segoe UI", 18, "bold"))
+title_label.pack(side="left")
+
+github_btn = tb.Button(top_frame, text="See More", bootstyle="info-outline", command=open_github)
+github_btn.pack(side="right")
+
+# Theme Toggle
+theme_btn = tb.Button(app, text="🌓 Switch Theme", bootstyle="secondary-outline", command=toggle_theme)
+theme_btn.pack(pady=(0, 10), padx=15, fill="x")
+
+
+buttons_frame = tb.Frame(app)
+buttons_frame.pack(fill="both", expand=True, padx=15, pady=10)
+
+# We'll use grid and dynamically place buttons row by row inside each section
+
+row_index = 0
+for section_title, commands in COMMAND_SECTIONS.items():
+    # Section label spans all columns
+    section_lbl = tb.Label(buttons_frame, text=section_title, font=("Segoe UI", 13, "bold"), bootstyle="primary-inverse")
+    section_lbl.grid(row=row_index, column=0, columnspan=3, sticky="ew", pady=(15,5))
+    row_index += 1
+
+    col = 0
+    for name, cmd in commands:
+        btn = tb.Button(buttons_frame, text=name, bootstyle="info-outline", command=lambda c=cmd: run_command(c))
+        btn.grid(row=row_index, column=col, sticky="ew", padx=5, pady=5)
+        col += 1
+        if col > 2:  # 3 columns per row
+            col = 0
+            row_index += 1
+    if col != 0:
+        row_index += 1  # Move to next row after finishing buttons in this section
+
+# Configure grid columns to expand evenly
+for i in range(3):
+    buttons_frame.columnconfigure(i, weight=1)
+
+# -------------------- OUTPUT WINDOW --------------------
+output_text = tk.Text(app, height=15, state="disabled", bg="#1e1e1e", fg="#d4d4d4", font=("Consolas", 10))
+output_text.pack(fill="both", expand=False, padx=15, pady=(0, 10))
+
+# -------------------- GLOBAL MOUSE WHEEL BINDINGS --------------------
+def on_mouse_wheel(event):
+    # Redirect scroll to output_text no matter where the cursor is
+    if platform.system() == 'Windows':
+        delta = int(-1 * (event.delta / 120))
+    elif platform.system() == 'Darwin':
+        delta = int(-1 * event.delta)
+    else:
+        return  # Linux handled separately below
+
+    output_text.yview_scroll(delta, "units")
+    return "break"  # prevent default scrolling elsewhere
+
+app.bind_all("<MouseWheel>", on_mouse_wheel)  # Windows & macOS
+app.bind_all("<Button-4>", lambda e: (output_text.yview_scroll(-1, "units"), "break"))  # Linux scroll up
+app.bind_all("<Button-5>", lambda e: (output_text.yview_scroll(1, "units"), "break"))   # Linux scroll down
+
+# -------------------- FOOTER --------------------
+footer = tb.Label(app, text="Made with ❤️ by DomainTyler", font=("Segoe UI", 9), bootstyle="secondary")
+footer.pack(side="bottom", pady=10)
+
+# -------------------- RUN --------------------
+app.mainloop()
