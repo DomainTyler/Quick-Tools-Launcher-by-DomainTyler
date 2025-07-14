@@ -73,10 +73,9 @@ Want to contribute or customize?
 
 ---
 
-## 🆘 Support & Community
+## 🆘 Support
 
 - FAQ & Troubleshooting: [Wiki](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/wiki)  
-- Join the discussion: [Discord](https://discord.gg/YOUR_DISCORD_INVITE)
 
  ---
  
