@@ -11,7 +11,7 @@
 
 A lightweight Windows utility that provides fast access to essential system tools and maintenance commands through a simple menu interface. Designed for users who want to streamline Windows troubleshooting and management.
 
-![Preview](https://raw.githubusercontent.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/main/preview%20image.png)
+![Preview](https://github.com/DomainTyler/Quick-Tools-Launcher-by-DomainTyler/raw/main/preview%20image.png)
 ---
 
 ## 💡 Usage
